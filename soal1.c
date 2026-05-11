@@ -13,7 +13,9 @@
 #include<string.h>
 #include<stdbool.h>
 
-void readMatrix(int adjmatrix[][], int size){
+int size;
+
+void readMatrix(int adjmatrix[][size], int size){
     int val;
     for(int i=0; i<size; i++){
         for(int j=0; j<size; j++){
@@ -23,7 +25,7 @@ void readMatrix(int adjmatrix[][], int size){
     }
 }
 
-void degree(int adjmatrix[][], int size, int deg[]){
+void degree(int adjmatrix[][size], int size, int deg[]){
     for(int i=0; i<size; i++){
         deg[i]=0;
         for(int j=0; j<size; j++){
@@ -31,7 +33,7 @@ void degree(int adjmatrix[][], int size, int deg[]){
                 deg[i]++;
             }
         }
-        printf("DEGREE %d %d", &i, &deg[i]);
+        printf("DEGREE %d %d\n", i, deg[i]);
     }
 }
 
@@ -42,20 +44,19 @@ int maxVertex(int deg[], int size){
             temp=i;
         }
     }
-    printf("MAX_VERTEX %d", &temp);
+    printf("MAX_VERTEX %d\n", temp);
 }
 void isolasi(int deg[], int size){
     for(int i=0; i<size; i++){
         if(deg[i]==0){
-            printf("ISOLATED %d", &i);
+            printf("ISOLATED %d\n", i);
         }
     }
 
 }
 
 int main(){
-    int i;
-    int size;
+    
     if (scanf("%d", &size) == 1){
         int adjmatrix[size][size];
         readMatrix(adjmatrix, size);
