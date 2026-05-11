@@ -47,11 +47,17 @@ int maxVertex(int deg[], int size){
     printf("MAX_VERTEX %d\n", temp);
 }
 void isolasi(int deg[], int size){
+    int j=0;
+    printf("ISOLATED ");
     for(int i=0; i<size; i++){
         if(deg[i]==0){
-            printf("ISOLATED %d\n", i);
+            printf("%d ", i);
+            j++;
         }
+    }if(j==0){
+        printf("NONE");
     }
+    printf("\n");
 
 }
 
